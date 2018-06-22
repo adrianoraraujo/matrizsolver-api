@@ -32,7 +32,7 @@ public class RegisterController extends HttpServlet
 	{
 		UserDAO dao = new UserDAO();
 		JsonObject json = new JsonObject();
-		int userid = dao.cadastrarUsuario();
+		int userid = dao.registerUser();
 		json.addProperty("userid", userid);
 		response.getWriter().write(json.toString());
 		if (userid == -1)

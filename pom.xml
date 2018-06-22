@@ -12,7 +12,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<tomcat.version>9.0.2</tomcat.version>
 		<failOnMissingWebXml>false</failOnMissingWebXml>
-		<jetty.http.port>8081</jetty.http.port>
+		<jetty.http.port>8080</jetty.http.port>
 	</properties>
 
 	<dependencies>

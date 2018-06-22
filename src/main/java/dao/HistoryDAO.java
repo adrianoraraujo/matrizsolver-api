@@ -7,22 +7,22 @@ import java.sql.SQLException;
 
 import util.Conexao;
 
-public class MatrizDAO
+public class HistoryDAO
 {
 	Connection connection;
 	Conexao conexao;
 
-	public MatrizDAO()
+	public HistoryDAO()
 	{
 		conexao = Conexao.getConexao();
 		connection = conexao.getConnection();
 	}
 
-	public boolean cadastrarMatriz(int userid, String result)
+	public boolean registerHistory(int userid, String result)
 	{
 		try
 		{
-			PreparedStatement stmt = connection.prepareStatement("INSERT INTO results VALUES (?, ?) ON DUPLICATE KEY UPDATE result=?");
+			PreparedStatement stmt = connection.prepareStatement("INSERT INTO history VALUES (?, ?) ON DUPLICATE KEY UPDATE history=?");
 			stmt.setInt(1, userid);
 			stmt.setString(2, result);
 			stmt.setString(3, result);
@@ -34,11 +34,11 @@ public class MatrizDAO
 		}
 	}
 
-	public String getMatriz(int userid)
+	public String getHistory(int userid)
 	{
 		try
 		{
-			PreparedStatement stmt = connection.prepareStatement("SELECT result FROM results, users WHERE results.userid=users.userid AND results.userid=?");
+			PreparedStatement stmt = connection.prepareStatement("SELECT history FROM history, users WHERE history.userid=users.userid AND history.userid=?");
 			stmt.setInt(1, userid);
 			ResultSet valores = stmt.executeQuery();
 			if (valores.next())
@@ -47,7 +47,7 @@ public class MatrizDAO
 		{
 			return null;
 		}
-		return null;
+		return "";
 	}
 
 	// public boolean deleteFirstMatriz(int userid)

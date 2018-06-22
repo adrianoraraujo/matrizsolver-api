@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.MatrizDAO;
+import dao.HistoryDAO;
 
 @WebServlet("/getHistory")
 public class GetHistoryController extends HttpServlet
@@ -28,11 +28,11 @@ public class GetHistoryController extends HttpServlet
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		MatrizDAO dao = new MatrizDAO();
+		HistoryDAO dao = new HistoryDAO();
 		int userid = Integer.parseInt(request.getParameter("userid"));
-		String history = dao.getMatriz(userid);
+		String history = dao.getHistory(userid);
 		if (history != null)
-			response.getWriter().write(dao.getMatriz(userid));
+			response.getWriter().write(dao.getHistory(userid));
 		else
 			response.setStatus(HttpServletResponse.SC_SERVICE_UNAVAILABLE);
 

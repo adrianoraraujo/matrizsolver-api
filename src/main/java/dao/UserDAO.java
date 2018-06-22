@@ -18,7 +18,7 @@ public class UserDAO
 		connection = conexao.getConnection();
 	}
 
-	public int cadastrarUsuario()
+	public int registerUser()
 	{
 		boolean idExists = false;
 		do
@@ -30,6 +30,7 @@ public class UserDAO
 				randomid.next();
 				int userid = randomid.getInt(1);
 				stmt.execute("INSERT INTO users VALUES (" + userid + ")");
+				idExists=false;
 				return userid;
 			} catch (SQLException e)
 			{
