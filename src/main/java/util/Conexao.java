@@ -25,7 +25,7 @@ public class Conexao
 	{
 		try
 		{
-			connection = DriverManager.getConnection("jdbc:mysql://localhost/matrizsolver?useSSL=true&verifyServerCertificate=false", "matrizsolver", "DGZiNTyGnt5T6Qx0");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost/matrizsolver?useSSL=true&verifyServerCertificate=false", "login", "pass");
 		} catch (SQLException e)
 		{
 			System.out.println("Erro ao conectar com o banco: " + e.getMessage());
